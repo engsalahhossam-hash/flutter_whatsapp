@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+import 'package:whatsapp/constants/colors.dart';
+import 'package:whatsapp/screens/updates/components/widgets/channels/channels.dart';
+import 'package:whatsapp/screens/updates/components/widgets/channels/channels_header.dart';
+import 'package:whatsapp/screens/updates/components/widgets/channels/suggested_channels.dart';
+import 'package:whatsapp/screens/updates/components/widgets/channels/suggested_channels_header.dart';
+import 'package:whatsapp/screens/updates/components/widgets/status/status_header.dart';
+import 'package:whatsapp/screens/updates/components/widgets/status/statuses.dart';
+
+
+class UpdatesScreenBody extends StatelessWidget {
+  const UpdatesScreenBody({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const StatusHeader(),
+          const SizedBox(height: 15.0),
+          const StatusWidget(),
+          const SizedBox(height: 5.0),
+          const Divider(color: kDividerColor),
+          const SizedBox(height: 15.0),
+          const ChannelsHeader(),
+          const SizedBox(height: 5.0),
+          ...channels(),
+          const SizedBox(height: 15.0),
+          const SuggestedChannelsHeader(),
+          const SuggestedChannels(),
+          const SizedBox(height: 135.0),
+        ],
+      ),
+    );
+  }
+}
